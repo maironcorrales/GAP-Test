@@ -12,7 +12,7 @@ namespace GAP_Tec_Test.Controllers
     {
 
         UnitOfWork uw = new UnitOfWork(new GAPTestEntities());
-
+        Policy policy = new Policy();
         // GET: Policy
         public ActionResult Policies()
         {
@@ -28,10 +28,16 @@ namespace GAP_Tec_Test.Controllers
             uw.Complete();
             return Redirect("~/Policy/Policies");
         }
-
-        public ActionResult EditPolicy(Policy model, int id)
+    
+        public ActionResult EditPolicy(int id)
         {
-            Policy policy = uw.Policies.Get(id);
+            
+            return View( policy = uw.Policies.Get(id));
+        }
+
+        public ActionResult SaveChanges(Policy model)
+        {
+            Policy policy = uw.Policies.Get(model.id_policy);
             policy.policy_name = model.policy_name;
             policy.policy_description = model.policy_description;
             uw.Complete();
