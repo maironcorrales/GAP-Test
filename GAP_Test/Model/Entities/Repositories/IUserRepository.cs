@@ -8,5 +8,6 @@ namespace Model.Entities.Repositories
 {
     public interface IUserRepository: IRepository<User>
     {
+        bool UserExist(string username, string password);
     }
 }

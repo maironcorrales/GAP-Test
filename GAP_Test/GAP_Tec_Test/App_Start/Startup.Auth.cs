@@ -58,11 +58,11 @@ namespace GAP_Tec_Test
             //   appId: "",
             //   appSecret: "");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "587579018148-bebfrqqq8ttorc1f2m5fuptuhs2b63tr.apps.googleusercontent.com",
+                ClientSecret = "Wfx9d0h7FJFlwIotSM__QOH_"
+            });
         }
     }
 }

@@ -472,7 +472,7 @@ namespace GAP_Tec_Test.Controllers
 
             public override void ExecuteResult(ControllerContext context)
             {
-                var properties = new AuthenticationProperties { RedirectUri = RedirectUri };
+                var properties = new AuthenticationProperties { RedirectUri = "https://localhost:44316/Policy/Policies" };
                 if (UserId != null)
                 {
                     properties.Dictionary[XsrfKey] = UserId;

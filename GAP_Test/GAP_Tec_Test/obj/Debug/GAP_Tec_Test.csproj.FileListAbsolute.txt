@@ -130,3 +130,6 @@ C:\Users\ExtremeTech\Desktop\Test GAP\Editables\GAP-Test\GAP_Test\GAP_Tec_Test\o
 C:\Users\ExtremeTech\Desktop\Test GAP\Editables\GAP-Test\GAP_Test\GAP_Tec_Test\obj\Debug\GAP_Tec_Test.csproj.CopyComplete
 C:\Users\ExtremeTech\Desktop\Test GAP\Editables\GAP-Test\GAP_Test\GAP_Tec_Test\obj\Debug\GAP_Tec_Test.dll
 C:\Users\ExtremeTech\Desktop\Test GAP\Editables\GAP-Test\GAP_Test\GAP_Tec_Test\obj\Debug\GAP_Tec_Test.pdb
+C:\Users\ExtremeTech\Desktop\Test GAP\Editables\GAP-Test\GAP_Test\GAP_Tec_Test\bin\Model.dll
+C:\Users\ExtremeTech\Desktop\Test GAP\Editables\GAP-Test\GAP_Test\GAP_Tec_Test\bin\Model.pdb
+C:\Users\ExtremeTech\Desktop\Test GAP\Editables\GAP-Test\GAP_Test\GAP_Tec_Test\bin\Model.dll.config

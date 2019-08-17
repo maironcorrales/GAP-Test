@@ -10,3 +10,5 @@ C:\Users\ExtremeTech\Desktop\Test GAP\Editables\GAP-Test\GAP_Test\Model\obj\Debu
 C:\Users\ExtremeTech\Desktop\Test GAP\Editables\GAP-Test\GAP_Test\Model\obj\Debug\Model.csproj.CopyComplete
 C:\Users\ExtremeTech\Desktop\Test GAP\Editables\GAP-Test\GAP_Test\Model\obj\Debug\Model.dll
 C:\Users\ExtremeTech\Desktop\Test GAP\Editables\GAP-Test\GAP_Test\Model\obj\Debug\Model.pdb
+C:\Users\ExtremeTech\Desktop\Test GAP\Editables\GAP-Test\GAP_Test\Model\bin\Debug\es\EntityFramework.resources.dll
+C:\Users\ExtremeTech\Desktop\Test GAP\Editables\GAP-Test\GAP_Test\Model\bin\Debug\es\EntityFramework.SqlServer.resources.dll

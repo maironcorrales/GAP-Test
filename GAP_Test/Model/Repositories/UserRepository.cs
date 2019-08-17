@@ -23,5 +23,13 @@ namespace Model.Repositories
             }
         }
 
+        public bool UserExist(string username, string password)
+        {
+            bool flag = false;
+            var user = GAPTestEntities.Users.Where(u => u.username == username && u.user_password == password).FirstOrDefault();
+            if (user != null)
+                flag = true;
+            return flag;
+        }
     }
 }
