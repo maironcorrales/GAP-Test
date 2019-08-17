@@ -195,6 +195,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PolicyController.cs" />
@@ -265,6 +266,9 @@
     <Content Include="Views\Shared\LayoutView.cshtml" />
     <Content Include="Views\Policy\Policies.cshtml" />
     <Content Include="Views\Policy\EditPolicy.cshtml" />
+    <Content Include="Views\Client\Client.cshtml" />
+    <Content Include="Views\Client\EditClient.cshtml" />
+    <Content Include="Views\Client\AddPolicyToClient.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
