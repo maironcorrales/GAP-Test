@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GAPTestModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Client_has_Policy">
+    <Key>
+      <PropertyRef Name="id_coverage_plan" />
+    </Key>
+    <Property Name="id_coverage_plan" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="plan_Coverage_description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="cover_object" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="client_id_client" Type="Int32" Nullable="false" />
+    <Property Name="policy_id_policy" Type="Int32" Nullable="false" />
+    <Property Name="coverage_start" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="coverage_amount" Type="Int32" Nullable="false" />
+    <Property Name="coverage_period" Type="Int32" Nullable="false" />
+    <Property Name="coverage_monthly_price" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="risk" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Client" Relationship="Self.FK__Client_ha__clien__6383C8BA" FromRole="Client_has_Policy" ToRole="Clients" />
+    <NavigationProperty Name="Policy" Relationship="Self.FK__Client_ha__polic__6477ECF3" FromRole="Client_has_Policy" ToRole="Policies" />
+  </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="id_client" />
+    </Key>
+    <Property Name="id_client" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="full_name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="identification" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Client_has_Policy" Relationship="Self.FK__Client_ha__clien__6383C8BA" FromRole="Clients" ToRole="Client_has_Policy" />
+  </EntityType>
+  <EntityType Name="Policy">
+    <Key>
+      <PropertyRef Name="id_policy" />
+    </Key>
+    <Property Name="id_policy" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="policy_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="policy_description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Client_has_Policy" Relationship="Self.FK__Client_ha__polic__6477ECF3" FromRole="Policies" ToRole="Client_has_Policy" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="id_user" />
+    </Key>
+    <Property Name="id_user" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="user_password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Client_ha__clien__6383C8BA">
+    <End Role="Clients" Type="Self.Client" Multiplicity="1" />
+    <End Role="Client_has_Policy" Type="Self.Client_has_Policy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clients">
+        <PropertyRef Name="id_client" />
+      </Principal>
+      <Dependent Role="Client_has_Policy">
+        <PropertyRef Name="client_id_client" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Client_ha__polic__6477ECF3">
+    <End Role="Policies" Type="Self.Policy" Multiplicity="1" />
+    <End Role="Client_has_Policy" Type="Self.Client_has_Policy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Policies">
+        <PropertyRef Name="id_policy" />
+      </Principal>
+      <Dependent Role="Client_has_Policy">
+        <PropertyRef Name="policy_id_policy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="GAPTestEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Client_has_Policy" EntityType="Self.Client_has_Policy" />
+    <EntitySet Name="Clients" EntityType="Self.Client" />
+    <EntitySet Name="Policies" EntityType="Self.Policy" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="FK__Client_ha__clien__6383C8BA" Association="Self.FK__Client_ha__clien__6383C8BA">
+      <End Role="Clients" EntitySet="Clients" />
+      <End Role="Client_has_Policy" EntitySet="Client_has_Policy" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Client_ha__polic__6477ECF3" Association="Self.FK__Client_ha__polic__6477ECF3">
+      <End Role="Policies" EntitySet="Policies" />
+      <End Role="Client_has_Policy" EntitySet="Client_has_Policy" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="GAPTestModelStoreContainer" CdmEntityContainer="GAPTestEntities">
+    <EntitySetMapping Name="Client_has_Policy">
+      <EntityTypeMapping TypeName="GAPTestModel.Client_has_Policy">
+        <MappingFragment StoreEntitySet="Client_has_Policy">
+          <ScalarProperty Name="id_coverage_plan" ColumnName="id_coverage_plan" />
+          <ScalarProperty Name="plan_Coverage_description" ColumnName="plan_Coverage_description" />
+          <ScalarProperty Name="cover_object" ColumnName="cover_object" />
+          <ScalarProperty Name="client_id_client" ColumnName="client_id_client" />
+          <ScalarProperty Name="policy_id_policy" ColumnName="policy_id_policy" />
+          <ScalarProperty Name="coverage_start" ColumnName="coverage_start" />
+          <ScalarProperty Name="coverage_amount" ColumnName="coverage_amount" />
+          <ScalarProperty Name="coverage_period" ColumnName="coverage_period" />
+          <ScalarProperty Name="coverage_monthly_price" ColumnName="coverage_monthly_price" />
+          <ScalarProperty Name="risk" ColumnName="risk" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clients">
+      <EntityTypeMapping TypeName="GAPTestModel.Client">
+        <MappingFragment StoreEntitySet="Clients">
+          <ScalarProperty Name="id_client" ColumnName="id_client" />
+          <ScalarProperty Name="full_name" ColumnName="full_name" />
+          <ScalarProperty Name="identification" ColumnName="identification" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Policies">
+      <EntityTypeMapping TypeName="GAPTestModel.Policy">
+        <MappingFragment StoreEntitySet="Policies">
+          <ScalarProperty Name="id_policy" ColumnName="id_policy" />
+          <ScalarProperty Name="policy_name" ColumnName="policy_name" />
+          <ScalarProperty Name="policy_description" ColumnName="policy_description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="GAPTestModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="id_user" ColumnName="id_user" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="user_password" ColumnName="user_password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

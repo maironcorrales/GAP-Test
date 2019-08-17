@@ -88,8 +88,45 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\bootstrap4\css\bootstrap-grid.css" />
+    <Content Include="assets\bootstrap4\css\bootstrap-grid.min.css" />
+    <Content Include="assets\bootstrap4\css\bootstrap-reboot.css" />
+    <Content Include="assets\bootstrap4\css\bootstrap-reboot.min.css" />
+    <Content Include="assets\bootstrap4\css\bootstrap-theme.min.css" />
+    <Content Include="assets\bootstrap4\css\bootstrap.css" />
+    <Content Include="assets\bootstrap4\css\bootstrap.min.css" />
+    <Content Include="assets\bootstrap4\css\style.css" />
+    <Content Include="assets\bootstrap4\js\bootstrap.bundle.js" />
+    <Content Include="assets\bootstrap4\js\bootstrap.bundle.min.js" />
+    <Content Include="assets\bootstrap4\js\bootstrap.js" />
+    <Content Include="assets\bootstrap4\js\bootstrap.min.js" />
+    <Content Include="assets\bootstrap4\js\ini.js" />
+    <None Include="assets\bootstrap4\js\jquery-1.8.0.intellisense.js" />
+    <Content Include="assets\bootstrap4\js\jquery.form.js" />
+    <None Include="assets\bootstrap4\js\jquery.validate-vsdoc.js" />
+    <Content Include="assets\bootstrap4\js\jquery.validate.js" />
+    <Content Include="assets\bootstrap4\js\jquery.validate.min.js" />
+    <Content Include="assets\bootstrap4\js\jquery.validate.unobtrusive.js" />
+    <Content Include="assets\bootstrap4\js\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\shared\Layout.cshtml" />
+    <Content Include="Views\index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -100,6 +137,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
+    <Content Include="assets\bootstrap4\css\.DS_Store" />
+    <Content Include="assets\bootstrap4\css\bootstrap-grid.css.map" />
+    <Content Include="assets\bootstrap4\css\bootstrap-grid.min.css.map" />
+    <Content Include="assets\bootstrap4\css\bootstrap-reboot.css.map" />
+    <Content Include="assets\bootstrap4\css\bootstrap-reboot.min.css.map" />
+    <Content Include="assets\bootstrap4\css\bootstrap.css.map" />
+    <Content Include="assets\bootstrap4\css\bootstrap.min.css.map" />
+    <Content Include="assets\bootstrap4\js\bootstrap.bundle.js.map" />
+    <Content Include="assets\bootstrap4\js\bootstrap.bundle.min.js.map" />
+    <Content Include="assets\bootstrap4\js\bootstrap.js.map" />
+    <Content Include="assets\bootstrap4\js\bootstrap.min.js.map" />
+    <Content Include="assets\jquery\jquery.min.js" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
