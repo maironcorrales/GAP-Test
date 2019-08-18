@@ -57,5 +57,66 @@ namespace GAP_Test.Tests
             var result = cc.DeleteClient(client) as RedirectResult;
             Assert.AreEqual("~/Client/Client", result.Url);
         }
+
+        [TestMethod]
+        public void AddPlanToClientTest()
+        {
+            ClientController cc = new ClientController();
+            Client_has_Policy chp = new Client_has_Policy();
+            chp.client_id_client = 5;
+            chp.plan_Coverage_description = "unit testing";
+            chp.policy_id_policy = 2;
+            chp.risk = 3;
+            chp.coverage_amount = 50;
+            chp.coverage_period = 12;
+            chp.cover_object = "test";
+            chp.coverage_start = DateTime.Now;
+            chp.coverage_monthly_price = 3000;
+            FormCollection col = new FormCollection();
+           
+            var result = cc.AddPolicy(col, chp) as RedirectResult;
+            Assert.AreEqual("~/Client/AddPolicyToClient/" + chp.client_id_client,result.Url);
+        }
+
+        [TestMethod]
+        public void DeletePlanToClientTest()
+        {
+            ClientController cc = new ClientController();
+           
+            var result = cc.DeletePlan(4) as RedirectResult;
+            Assert.AreEqual("~/Client/AddPolicyToClient/" + 5, result.Url);
+        }
+
+        [TestMethod]
+        public void EditPlanToClientTest()
+        {
+            ClientController cc = new ClientController();
+            Client_has_Policy chp = new Client_has_Policy();
+            chp.id_coverage_plan = 4;
+            chp.client_id_client = 5;
+            chp.plan_Coverage_description = "unit testing";
+            chp.policy_id_policy = 3;
+            chp.risk = 3;
+            chp.coverage_amount = 50;
+            chp.coverage_period = 12;
+            chp.cover_object = " unit test";
+            chp.coverage_start = DateTime.Now;
+            chp.coverage_monthly_price = 3000;
+            FormCollection col = new FormCollection();
+
+            var result = cc.EditPolicy(chp) as RedirectResult;
+            Assert.AreEqual("~/Client/AddPolicyToClient/" + chp.client_id_client, result.Url);
+        }
+
+        [TestMethod]
+        public void GetPlansOfClientTest()
+        {
+            ClientController cc = new ClientController();
+            var result = cc.AddPolicyToClient(1) as ViewResult;
+            List<Client_has_Policy> actualElements = result.ViewBag.pliciesOfClient;
+            List<Client_has_Policy> expectedItems = uw.ClienHasPolicies.GetAllPoliciesFromClient(1).ToList();
+            Assert.AreEqual(expectedItems.Count, actualElements.Count);
+        }
+
     }
 }

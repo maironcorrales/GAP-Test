@@ -63,7 +63,8 @@ namespace GAP_Tec_Test.Controllers
 
         public ActionResult AddPolicy(FormCollection collection, Client_has_Policy model)
         {
-            model.client_id_client = Convert.ToInt32(collection[0]);
+            if(collection.Count>0)
+                model.client_id_client = Convert.ToInt32(collection[0]);
             if (model.risk == 4 && model.coverage_amount > 50)
             {
                 model.coverage_amount = 50;
