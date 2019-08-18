@@ -6,6 +6,8 @@ using GAP_Tec_Test.Controllers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Model;
 using Model.Entities;
+using Microsoft.CSharp.RuntimeBinder;
+
 
 namespace GAP_Test.Tests
 {
@@ -42,9 +44,9 @@ namespace GAP_Test.Tests
         {
             PolicyController pc = new PolicyController();
             var result = pc.Policies() as ViewResult;
-            //List<Policy> actualElements = result.ViewBag.policies.ToList();
+            List<Policy> actualElements = result.ViewBag.policies;
             List<Policy> expectedItems = uw.Policies.GetAll().ToList();
-            //Assert.AreEqual(expectedItems.Count, actualElements.Count);
+            Assert.AreEqual(expectedItems.Count, actualElements.Count);
         }
 
         [TestMethod]
