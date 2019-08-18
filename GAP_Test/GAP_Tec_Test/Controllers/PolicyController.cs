@@ -23,7 +23,6 @@ namespace GAP_Tec_Test.Controllers
 
         public ActionResult Policy(Policy model)
         {
-            
             uw.Policies.Add(model);
             uw.Complete();
             return Redirect("~/Policy/Policies");
