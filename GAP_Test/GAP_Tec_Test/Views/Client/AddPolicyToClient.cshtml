@@ -84,6 +84,7 @@
 </div>
 
 <div class="row">
+    <h2>Active Policies of the client </h2>
     <div class=" col-lg-12">
         @{if (policyList.Count > 0)
             {
@@ -92,7 +93,7 @@
                         <tr>
                             <th>Plan description</th>
                             <th>Object to cover</th>
-                            
+
                             <th>Covergae percentage</th>
                             <th>Start Date</th>
                             <th>Period </th>
@@ -102,50 +103,50 @@
 
                             <th style="width:100px"></th>
                             <th style="width:100px"></th>
-                            
+
                         </tr>
                     </thead>
                     <tbody>
 
                         @foreach (var m in policyList)
                         {
-                        <tr>
-                            <th>
-                                @m.plan_Coverage_description
-                            </th>
-                            <th>
-                                @m.cover_object
-                            </th>
-                            <th>
-                                @m.coverage_amount
-                            </th>
-                            <th>
-                                @m.coverage_start
-                            </th>
-                            <th>
-                                @m.coverage_period
-                            </th>
-                            <th>
-                                @m.coverage_monthly_price
-                            </th>
+                            <tr>
+                                <th>
+                                    @m.plan_Coverage_description
+                                </th>
+                                <th>
+                                    @m.cover_object
+                                </th>
+                                <th>
+                                    @m.coverage_amount
+                                </th>
+                                <th>
+                                    @m.coverage_start
+                                </th>
+                                <th>
+                                    @m.coverage_period
+                                </th>
+                                <th>
+                                    @m.coverage_monthly_price
+                                </th>
 
 
-                            @{switch (m.risk)
-                                {
-                                    case 1:
-                                        <th>Low</th>
-                                        break;
-                                    case 2:
-                                        <th>Medium</th>
-                                        break;
-                                    case 3:
-                                        <th>Medium-High</th>
-                                        break;
-                                    case 4:
-                                        <th>High</th>
-                                        break;
-                                 }
-                            }
+                                @{switch (m.risk)
+                                    {
+                                        case 1:
+                                            <th>Low</th>
+                                            break;
+                                        case 2:
+                                            <th>Medium</th>
+                                            break;
+                                        case 3:
+                                            <th>Medium-High</th>
+                                            break;
+                                        case 4:
+                                            <th>High</th>
+                                            break;
+                                    }
+                                }
 
 
 
