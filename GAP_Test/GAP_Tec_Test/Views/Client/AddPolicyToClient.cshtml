@@ -1,8 +1,175 @@
-﻿@model Model.Entities.Client
+﻿@model Model.Entities.Client_has_Policy
+
 @{
     ViewBag.Title = "AddPolicyToClient";
     Layout = "~/Views/Shared/LayoutView.cshtml";
+    List<Model.Entities.Client_has_Policy> policyList = ViewBag.pliciesOfClient;
+    Model.Entities.Client client = ViewBag.client;
+    //List<Model.Entities.Policy> policies = ViewBag.policies;
 }
 
-<h2>Adding a policy to client: @Model.full_name with ID: @Model.identification </h2>
+<h2>Adding a policy to client: @client.full_name with ID: @client.identification </h2>
+<div class="row">
+
+
+    <div class=" col-lg-12">
+
+        @using (Html.BeginForm("AddPolicy", "Client", FormMethod.Post, new { id = "frm-policy" }))
+        {
+            
+            <input name=@ViewBag.client.id_client id=@ViewBag.client.id_client value=@ViewBag.client.id_client hidden />
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <h6>Select a policy</h6>
+                    @Html.DropDownListFor(m => m.policy_id_policy, ViewBag.policies as SelectList, "Select a policy", new { @class = "form-control" })
+
+                </div>
+
+                <div class="form-group">
+                    <h6>Coverage plan Description</h6>
+                    @Html.TextAreaFor(m => m.plan_Coverage_description, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.plan_Coverage_description, null, new { @class = "label label-danger" })
+                </div>
+                <div class="form-group">
+                    <h6>Object that policy is going to cover</h6>
+                    @Html.TextBoxFor(m => m.cover_object, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.cover_object, null, new { @class = "label label-danger" })
+                </div>
+                <div class="form-group">
+                    <h6>Date that the policy begins to be effective</h6>
+                    @Html.TextBoxFor(m => m.coverage_start, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.coverage_start, null, new { @class = "label label-danger" })
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <h6>Coverage amount (percentual)</h6>
+                    @Html.TextBoxFor(m => m.coverage_amount, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.coverage_amount, null, new { @class = "label label-danger" })
+                </div>
+
+                <div class="form-group">
+                    <h6>Coverage period (months)</h6>
+                    @Html.TextBoxFor(m => m.coverage_period, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.coverage_period, null, new { @class = "label label-danger" })
+                </div>
+                <div class="form-group">
+                    <h6>Coverage price</h6>
+                    @Html.TextBoxFor(m => m.coverage_monthly_price, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.coverage_monthly_price, null, new { @class = "label label-danger" })
+                </div>
+                <div class="form-group">
+                    <h6>Risk</h6>
+                    @Html.DropDownListFor(m => m.risk, new List<SelectListItem>
+                    {
+                        new SelectListItem {Text="low",Value="1" },
+                        new SelectListItem {Text="Medium",Value="2" },
+                        new SelectListItem {Text="Medium-High",Value="3" },
+                        new SelectListItem {Text="High",Value="4" },
+                    },
+                    "Select a risk level", new { @class = "form-control" })
+
+                </div>
+
+
+            </div>
+            <div class="text-right">
+
+                <button data-ajax="true" data-confirm="Seguro desea guardar el registro" type="submit" class="btn btn-primary">Save</button>
+            </div>
+        }
+
+    </div>
+    <hr />
+</div>
+
+<div class="row">
+    <div class=" col-lg-12">
+        @{if (policyList.Count > 0)
+            {
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Plan description</th>
+                            <th>Object to cover</th>
+                            
+                            <th>Covergae percentage</th>
+                            <th>Start Date</th>
+                            <th>Period </th>
+                            <th>Price</th>
+                            <th>risk</th>
+
+
+                            <th style="width:100px"></th>
+                            <th style="width:100px"></th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var m in policyList)
+                        {
+                        <tr>
+                            <th>
+                                @m.plan_Coverage_description
+                            </th>
+                            <th>
+                                @m.cover_object
+                            </th>
+                            <th>
+                                @m.coverage_amount
+                            </th>
+                            <th>
+                                @m.coverage_start
+                            </th>
+                            <th>
+                                @m.coverage_period
+                            </th>
+                            <th>
+                                @m.coverage_monthly_price
+                            </th>
+
+
+                            @{switch (m.risk)
+                                {
+                                    case 1:
+                                        <th>Low</th>
+                                        break;
+                                    case 2:
+                                        <th>Medium</th>
+                                        break;
+                                    case 3:
+                                        <th>Medium-High</th>
+                                        break;
+                                    case 4:
+                                        <th>High</th>
+                                        break;
+                                 }
+                            }
+
+
+
+
+
+
+                                <th>
+                                    <a class="btn btn-xs btn-primary btn-block" href="~/Client/EditPlan/@m.id_coverage_plan">Edit</a>
+                                </th>
+                                <th>
+                                    <a class="btn btn-xs btn-danger btn-block" href="~/Client/DeletePlan/@m.id_coverage_plan">Delete</a>
+                                </th>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+
+            }
+        }
+
+    </div>
+
+
+</div>
+
 

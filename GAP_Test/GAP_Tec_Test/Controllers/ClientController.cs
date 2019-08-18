@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Model;
 using Model.Entities;
 
+
 namespace GAP_Tec_Test.Controllers
 {
     public class ClientController : Controller
@@ -40,8 +41,15 @@ namespace GAP_Tec_Test.Controllers
             return View(client = uw.Clients.Get(id));
         }
 
-        public ActionResult AddPolicyToClient()
+        public ActionResult AddPolicyToClient(int id)
         {
+            List<Client_has_Policy> clientPolicyList = uw.ClienHasPolicies.GetAllPoliciesFromClient(id).ToList();
+            ViewBag.pliciesOfClient = clientPolicyList;
+            ViewBag.client = uw.Clients.Get(id);
+            List<Policy> policyList = uw.Policies.GetAll().ToList();
+            List<string> risks = new List<string>{"Low", "Medium", "Mediwm-high", "High"};
+            ViewBag.risks = new SelectList(risks, "risks", "risks");
+            ViewBag.policies = new SelectList(policyList,"id_policy","policy_name");
             return View();
         }
 
@@ -53,5 +61,25 @@ namespace GAP_Tec_Test.Controllers
             uw.Complete();
             return Redirect("~/Client/Client");
         }
+
+        public ActionResult AddPolicy(FormCollection collection, Client_has_Policy model)
+        {
+            model.client_id_client = Convert.ToInt32(collection[0]);
+            uw.ClienHasPolicies.Add(model);
+            uw.Complete();
+            return Redirect("~/Client/AddPolicyToClient/"+model.client_id_client);
+        }
+
+        public ActionResult DeletePlan(int id)
+        {
+            int param = 0;
+            Client_has_Policy chp = uw.ClienHasPolicies.Get(id);
+            param = chp.client_id_client;
+            uw.ClienHasPolicies.Remove(chp);
+            uw.Complete();
+            return Redirect("~/Client/AddPolicyToClient/" + param);
+        }
+
+        
     }
 }

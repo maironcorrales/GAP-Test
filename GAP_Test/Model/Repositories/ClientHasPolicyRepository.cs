@@ -22,5 +22,10 @@ namespace Model.Repositories
                 return Context as GAPTestEntities;
             }
         }
+
+        public IEnumerable<Client_has_Policy> GetAllPoliciesFromClient(int id)
+        {
+            return GAPTestEntities.Client_has_Policy.Where(c => c.client_id_client == id);
+        }
     }
 }
